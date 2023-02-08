@@ -1,167 +1,69 @@
-Configurando:  
-
- git config --global user.email “seu e-mail do github” 
-
- git config --global user.name “seu nome ” 
-
-(confirmação: git config --list) 
-
-Chave ssh :  
-
-ssh-keygen -t ed25519 -C "mesmoe480@gmail.com" 
-
+Configurando: 
+ git config --global user.email “seu e-mail do github”
+ git config --global user.name “seu nome ”
+(confirmação: git config --list)
+Chave ssh : 
+ssh-keygen -t ed25519 -C "mesmoe480@gmail.com"
  
-
+Iniciando repositório:
+git init 
  
-
-Criando um espaço remoto pro projeto:  
-
-git remote add origin git@github.com:juanaee/TreinandooGit.git (Necessário ter repositório no github)  
-
-Alterando espaço remoto do projeto 
-
-Basta usar o seguinte comando  
-
-git remote set-url origin link do repositório 
-
+salvando versões: 
+git add . (mandou pro stage) 
+git commit -m “mudei algo”
+Visualizando alterações no projeto:
+git status (ver se tem alterações  no stage pra salvar )
+git log ( visualizar todas as versões e mudanças dessas versões ) 
+git log –oneline ( forma resumida , padrão )
+git diff ( visualizar mudanças detalhadas ) 
+----------------------------------------------------------------------------------
  
-
-4(opcional) git branch -M main ( faz com que caso seu git esteja configurado para ser master , versão antiga, se torne main , mais usados atualmente. 
-
+Criando um espaço remoto pro projeto: 
+git remote add origin git@github.com:juanaee/TreinandooGit.git (Necessário ter repositório no github) 
+Alterando espaço remoto do projeto
+Basta usar o seguinte comando 
+git remote set-url origin link do repositório
+ ----------------------------------------------------------------------------------
  
+Mandando commit para o repositório remoto (github) : 
+git push -u origin main ( caso seja a primeira vez usando )
+git push
+Força push (Ação destrutiva)
+ git push -f origin main 
 
-Iniciando repositório: 
-
-git init  
-
+Trazer commits de um projeto em um repositório remoto:
+git pull origin main
+o que fazer quando abre o editor VIM:
+i (habilita o modo de edição )
+ESC
  
-
-salvando versões:  
-
-git add . (mandou pro stage)  
-
-git commit -m “mudei algo” 
-
-Mandando commit para o repositório remoto (github) :  
-
-git push -u origin main ( caso seja a primeira vez usando ) 
-
-git push 
-
-Força push (Ação destrutiva) 
-
- git push -f origin main  
-
+:wp 
+ENTER (saindo, salvando a alteração)
+ESC
  
-
-CLONANDO PROJETOS: 
-
-Para você clonar um projeto do github que você tenha permissão, você faz o seguintes passos 
-
-  
-
-1:git clone link do repositório 
-
-(com isso você faz um clone para sua máquina , link pego normalmente no github ) 
-
-3: git add . 
-
-4:git commit -m  "mensagem explicativa" 
-
-5: git push -u origin main ( ou apenas git push caso você já tenha feito ) 
-
-( leva às mudanças pro github) 
-
+:q!  
+ENTER (saindo sem salvar a alteração)
  
-
- Como verificar o  histórico de versões , ou melhor o histórico de mudanças do projeto 
-
-  
-
-git log 
-
-ou 
-
-git log --oneline (para mostrar de forma resumida  , forma mais utilizada para não deixar o terminal tão “sujo”.) 
-
-  
-
-Além disso temos o git status onde pode ocorrer 3 situações 
-
-  
-
-Modified ( arquivos modificados não salvos ) 
-
-Untracked (arquivos novos não salvos ) 
-
- Deleted ( arquivos deletados ) 
-
+Oque fazer quando o pull abre o editor VIM:
+Aperte I 
+depois Esc.  
+escreva :wp para salvar
+logo depois de enter 
+feche :q!
+ ----------------------------------------------------------------------------------
+“Andando” entre os commits: 
+git checkout HEAD~1
+Em caso de fazer alterações acidentalmente em um commit antigo:
+git clean -df
+git checkout -- .
  
-
- Para trazer atualizações dos projeto remoto ( no github) para sua máquina basta fazer: 
-
- Git pull origin main 
-
-Em casos de erro do push basta fazer o seguinte processo , você traz com as atualizações que falta na sua máquina local , com o git pull , logo depois tente dar um git commit -m , automaticamente vai abrir o editor VIM você apertar o “i” , esc , escrever :wp  
-
-e  logo depois da enter , com isso irá criar um marge para que suporte o commit anterior. logo depois você poderá dar um git push sem ser rejeitado  
-
+Apagando commit porém mantendo as modificações:
+ git reset --soft HEAD~1
  
-
- 
-
-  
-
-Visualizando alterações no projeto: 
-
-git status (ver se tem alterações  no stage pra salvar ) 
-
-git log ( visualizar todas as versões e mudanças dessas versões )  
-
-git log –oneline ( forma resumida , padrão ) 
-
-git diff ( visualizar mudanças detalhadas )  
-
- 
-
- 
-
-“Andando” entre os commits:  
-
-git checkout HEAD~1 
-
-Em caso de fazer alterações acidentalmente em um commit antigo: 
-
-git clean -df 
-
-git checkout -- . 
-
- 
-
-Apagando commit porém mantendo as modificações: 
-
- git reset --soft HEAD~1 
-
- 
-
-Apagando commit e modificação :  
-
-git reset --hard código do commit 
-
- ou 
-
-git reset --hard HEAD~1 
-
- 
-
- 
-
- 
-
- 
-
- 
-
+Apagando commit e modificação : 
+git reset --hard código do commit
+ ou
+git reset --hard HEAD~1
  
 
  
